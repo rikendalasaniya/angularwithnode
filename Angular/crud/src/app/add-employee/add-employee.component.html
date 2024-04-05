@@ -1,0 +1,29 @@
+<form #myForm="ngForm" (ngSubmit)="addemp(myForm.value)">
+    <div class="d-flex justify-content-center align-itmes-center">
+        <div class="row my-5 w-50  ">
+            <div class="mb-2">
+                <label for="exampleInputEmail1" class="form-label">Image</label>
+                <input type="text" name="EmpImage" [(ngModel)]="data.EmpImage" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Name</label>
+                <input type="text" name="EmpName" class="form-control" [(ngModel)]="data.EmpName"
+                    id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Designation</label>
+                <input type="text" name="EmpDesc" [(ngModel)]="data.EmpDesc" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Joining Date</label>
+                <input type="City" name="EmpJoiningDate" [(ngModel)]="data.EmpJoiningDate" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Experience</label>
+                <input type="City" name="Empexperience" [(ngModel)]="data.Empexperience" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
