@@ -1,15 +1,17 @@
 <div class="container-fluid">
-    <div class="row d-flex justify-content-center align-items-center my-5">
-        <div class="col-5 w-25 card">
-            <div>
-                <img [src]="emp.EmpImage" alt="" style="width:18rem;" />
-                <div class="card-title h5">{{emp.EmpName}}</div>
-                <div class="card-text">{{emp.EmpCity}}</div>
-                <div class="card-text">{{emp.EmpDesc}}</div>
-                <div class="card-text">{{emp.EmpJoiningDate}}</div>
-                <div class="card-text">{{emp.Empexperience}}</div>
-                <div class="btn btn-danger" (click)="deleteemp(emp.id)">Delete</div>
-                <div class="btn btn-success" routerLink="/employee/edit/{{emp._id}}">EDIT</div>
+    <div class="row justify-content-center my-5">
+        <div class="col-md-5">
+            <div class="card p-3">
+                <img [src]="emp.EmpImage" alt="Employee Image" class="card-img-top" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{emp.EmpName}}</h5>
+                    <p class="card-text">{{emp.EmpCity}}</p>
+                    <p class="card-text">{{emp.EmpDesc}}</p>
+                    <p class="card-text">Joining Date: {{emp.EmpJoiningDate}}</p>
+                    <p class="card-text">Experience: {{emp.Empexperience}}</p>
+                    <button class="btn btn-danger mr-2" (click)="deleteemp(emp._id)">Delete</button>
+                    <a routerLink="/employee/edit/{{emp._id}}" class="btn btn-success">Edit</a>
+                </div>
             </div>
         </div>
     </div>

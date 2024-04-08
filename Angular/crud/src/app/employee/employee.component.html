@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="btn btn-primary" routerLink="/employee/add"> ADD EMPLOYEE</div>
     <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-5 w-25  card" *ngFor="let emp of Employee">
+        <div class="col-3 card" *ngFor="let emp of Employee">
             <div>
                 <img [src]="emp.EmpImage" alt="" style="width:18rem;" />
                 <div class="card-title h5">{{emp.EmpName}}</div>
@@ -10,7 +10,7 @@
                 <div class="card-text">{{emp.EmpJoiningDate}}</div>
                 <div class="card-text">{{emp.Empexperience}}</div>
                 <a routerLink="/employee/{{emp._id}}" class="btn btn-primary">View</a>
-                <div class="btn btn-danger" (click)="deleteemp(emp.id)">Delete</div>
+                <div class="btn btn-danger" (click)="deleteEmp(emp._id)">Delete</div> 
             </div>
         </div>
     </div>

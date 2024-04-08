@@ -1,28 +1,34 @@
-
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiEmployeeService } from '../api-employee.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrl: './employee.component.css'
+  styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent {
   Employee: any = [];
-  constructor(private _apiEmployee: ApiEmployeeService, private _activatedRoute: ActivatedRoute,
-    private _router: Router) { }
+
+  constructor(
+    private _apiEmployee: ApiEmployeeService,
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router,
+  ) {}
 
   ngOnInit() {
-    this._apiEmployee.getAllEmployee().subscribe(res => {
-      this.Employee = res;
-      console.log(this.Employee);
-    });
-
+    this.getAllEmployees();
   }
-  deleteemp(id: any) {
-    this._apiEmployee.deleteEmployee(id).subscribe((res) => {
-     this.ngOnInit()
+
+  getAllEmployees() {
+    this._apiEmployee.getAllEmployee().subscribe((res) => {
+      this.Employee = res;
+    });
+  }
+
+  deleteEmp(id: any) {
+    this._apiEmployee.deleteEmployee(id).subscribe(() => {
+      this.ngOnInit();
     });
   }
 }
