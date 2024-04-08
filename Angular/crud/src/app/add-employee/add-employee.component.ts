@@ -24,23 +24,25 @@ export class AddEmployeeComponent {
     private _activatedroute: ActivatedRoute
   ) { }
   addemp(form: any) {
-    if (this.editid) {
+    if (this.editid==-1) {
 
-      this._api.update(form, this.editid).subscribe((res: any) => {
-        this._router.navigate(['employee'])
-      })
-
-    }
-    else {
       this._api.insert(form).subscribe((res: any) => {
         this.data = res;
         this._router.navigate(['employee']);
       });
+
+      
+
+    }
+    else {
+      this._api.update(form, this.editid).subscribe((res: any) => {
+        this._router.navigate(['employee'])
+      })
     }
   }
 
   ngOnInit(): void {
-    this.editid = Number(this._activatedroute.snapshot.paramMap.get('id'));
+    this.editid = this._activatedroute.snapshot.params[('id')]
     this._api.getById(this.editid).subscribe((res: any) => {
       this.data.EmpImage = res.EmpImage;
       this.data.EmpName = res.EmpName;
