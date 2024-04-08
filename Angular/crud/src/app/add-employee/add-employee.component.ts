@@ -29,10 +29,7 @@ export class AddEmployeeComponent {
       this._api.insert(form).subscribe((res: any) => {
         this.data = res;
         this._router.navigate(['employee']);
-      });
-
-      
-
+      })
     }
     else {
       this._api.update(form, this.editid).subscribe((res: any) => {
